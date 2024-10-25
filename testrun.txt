@@ -3,4 +3,7 @@
 
 # Some params for mac. Seems faster in single thread.
 mkdir -p data/test_results/
-docker run -v $(pwd)/data:/data cellstates python ./scripts/run_cellstates.py --save-intermediates --prior-optimization --seed 42 --outdir /data/test_results/ /data/test.txt 
+mkdir -p data/real_results/
+#docker run -v $(pwd)/data:/data cellstates python ./scripts/run_cellstates.py  --threads 5 --save-intermediates --prior-optimization --seed 42 --outdir /data/test_results/ /data/test.txt 
+docker run -v $(pwd)/data:/data cellstates python ./scripts/run_cellstates.py  --threads 1 --save-intermediates --prior-optimization --seed 42 --outdir /data/real_results/ /data/harmony_integrated_data_temp_counts_cellstates.tsv 
+
