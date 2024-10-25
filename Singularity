@@ -20,13 +20,17 @@ From: continuumio/miniconda3
         && apt-get clean \
         && rm -rf /var/lib/apt/lists/*
 
+    # Configure conda channels
+    conda config --add channels conda-forge
+    conda config --set channel_priority strict
+
     # Create conda environment with required dependencies
     conda create -n cellstates-env -y python=3.8
     . /opt/conda/etc/profile.d/conda.sh
     conda activate cellstates-env
 
     # Install required Python packages
-    conda install -y \
+    conda install -y -c conda-forge \
         numpy \
         pandas \
         matplotlib \
