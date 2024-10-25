@@ -1,0 +1,6 @@
+#docker run -v $(pwd)/data:/data cellstates python ./scripts/run_cellstates.py /data/test.txt
+#docker run -v $(pwd)/data:/data cellstates python ./scripts/run_cellstates.py --save-intermediates -t 8 --prior-optimization -s 42 /data/test.txt
+
+# Some params for mac. Seems faster in single thread.
+mkdir -p data/test_results/
+docker run -v $(pwd)/data:/data cellstates python ./scripts/run_cellstates.py --save-intermediates --prior-optimization --seed 42 --outdir /data/test_results/ /data/test.txt 
