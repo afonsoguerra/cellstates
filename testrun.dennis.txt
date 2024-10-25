@@ -1,0 +1,7 @@
+
+# Some params for singularity. Still seems faster in single thread.
+
+#mkdir -p data/test_results/
+mkdir -p data/real_results/
+singularity run -B $(pwd) cellstates_24102024.simg ./scripts/run_cellstates.py  --threads 1 --save-intermediates --prior-optimization --seed 42 --outdir data/real_results/ data/harmony_integrated_data_temp_counts_cellstates.tsv 
+
